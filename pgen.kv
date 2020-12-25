@@ -1,0 +1,86 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+
+<PgenGridLayout>:    
+    cols: 2
+    rows: 1
+    GridLayout:
+        cols: 1
+        rows: 2
+        padding: 15
+        spacing: 10
+        Label:
+            text: root.passgen(opts={'lowercase': check_lowercase.active, 'uppercase': check_uppercase.active, 'numbers': check_numbers.active, 'special_chars': check_symbols.active, 'length': slider.value})
+            text_size: self.width, None
+            size_hint: 1, None
+            height: self.texture_size[1]
+            id: password
+        GridLayout:
+            cols: 2
+            size_hint_y: None
+            height: 30
+            spacing: 10, 0
+            Button:
+                text: 'Refresh'
+                on_release: password.text = root.passgen(opts={'lowercase': check_lowercase.active, 'uppercase': check_uppercase.active, 'numbers': check_numbers.active, 'special_chars': check_symbols.active, 'length': slider.value})
+            Button:
+                text: 'Copy'
+                on_release: Clipboard.copy(password.text)    
+    GridLayout:
+        rows: 2
+        cols: 1
+        GridLayout:
+            cols: 1
+            rows: 2
+            #row_height: self.minimum_height
+            spacing: 0
+            GridLayout:
+                cols: 2
+                size_hint_y: None
+                padding: [0,0,15,0]
+                height: 50
+                Slider:
+                    id: slider
+                    min: 5
+                    max: 50
+                    step: 1
+                    value: 12
+                    orientation: 'horizontal'
+                Label:
+                    text: str(slider.value)
+                    size_hint: .1, 1
+            GridLayout:
+                rows: 4
+                cols: 1
+                size_hint_y: None
+                GridLayout:
+                    cols: 2
+                    rows: 1
+                    Label:
+                        text: 'Lowecase'
+                    CheckBox:
+                        id: check_lowercase
+                        active: True
+                GridLayout:
+                    cols: 2
+                    rows: 1
+                    Label:
+                        text: 'Uppercase'
+                    CheckBox:
+                        id: check_uppercase
+                        active: True
+                GridLayout:
+                    cols: 2
+                    rows: 1
+                    Label:
+                        text: 'Numbers'
+                    CheckBox:
+                        id: check_numbers
+                        active: True
+                GridLayout:
+                    cols: 2
+                    rows: 1
+                    Label:
+                        text: 'Symbols'
+                    CheckBox:
+                        id: check_symbols
+                        active: True
