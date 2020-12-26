@@ -1,8 +1,5 @@
 from kivy.config import Config
 from kivy.app import App
-from kivy.uix.label import Label
-from kivy.uix.slider import Slider
-from kivy.uix.checkbox import CheckBox
 from kivy.uix.gridlayout import GridLayout
 from includes.main import Password
 
