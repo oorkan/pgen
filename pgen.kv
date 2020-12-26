@@ -1,6 +1,12 @@
 #:import Clipboard kivy.core.clipboard.Clipboard
 
-<PgenGridLayout>:    
+<PgenGridLayout>:
+    canvas.before:
+        Color:
+            rgba: (55/255,54/255,51/255,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
     cols: 2
     rows: 1
     GridLayout:
