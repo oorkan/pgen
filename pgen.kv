@@ -9,13 +9,14 @@
             size: self.size
     cols: 2
     rows: 1
+    opts: {'lowercase': check_lowercase.active, 'uppercase': check_uppercase.active, 'numbers': check_numbers.active, 'special_chars': check_symbols.active, 'length': slider.value}
     GridLayout:
         cols: 1
         rows: 2
         padding: 15
         spacing: 10
         Label:
-            text: root.passgen(opts={'lowercase': check_lowercase.active, 'uppercase': check_uppercase.active, 'numbers': check_numbers.active, 'special_chars': check_symbols.active, 'length': slider.value})
+            text: root.passgen(opts=root.opts)
             text_size: self.width, None
             size_hint: 1, None
             height: self.texture_size[1]
@@ -27,7 +28,7 @@
             spacing: 10, 0
             Button:
                 text: 'Refresh'
-                on_release: password.text = root.passgen(opts={'lowercase': check_lowercase.active, 'uppercase': check_uppercase.active, 'numbers': check_numbers.active, 'special_chars': check_symbols.active, 'length': slider.value})
+                on_release: password.text = root.passgen(opts=root.opts)
             Button:
                 text: 'Copy'
                 on_release: Clipboard.copy(password.text)    
