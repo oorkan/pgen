@@ -19,6 +19,18 @@ class Password:
         digits = string.digits
         punctuation = string.punctuation
 
+        if(not 'lowercase' in options):
+            options['lowercase'] = False
+        
+        if(not 'uppercase' in options):
+            options['uppercase'] = False
+        
+        if(not 'numbers' in options):
+            options['numbers'] = False
+        
+        if(not 'special_chars' in options):
+            options['special_chars'] = False
+
         if(not options['lowercase'] and options['uppercase']):
             letters = string.ascii_uppercase
         elif(options['lowercase'] and not options['uppercase']):
