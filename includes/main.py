@@ -45,6 +45,9 @@ class Password:
             punctuation = ''
 
         chars = letters + digits + punctuation
-        password = ''.join(random.choice(chars) for i in range(options['length']))
+        password = ''
+
+        if(chars): 
+            password = ''.join(random.choice(chars) for i in range(options['length']))
         
         return password
