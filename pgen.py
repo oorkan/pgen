@@ -8,7 +8,7 @@ from includes.main import Password
 class PgenGridLayout(GridLayout, Password):
 	password = Password()
 
-	def passgen(self, opts={}):
+	def generate(self, opts={}):
 		return self.password.generate(opts)
 
 class PgenApp(App):

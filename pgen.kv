@@ -16,7 +16,7 @@
         padding: 15
         spacing: 10
         Label:
-            text: root.passgen(opts=root.opts)
+            text: root.generate(opts=root.opts)
             text_size: self.width, None
             size_hint: 1, None
             height: self.texture_size[1]
@@ -28,7 +28,7 @@
             spacing: 10, 0
             Button:
                 text: 'Refresh'
-                on_release: password.text = root.passgen(opts=root.opts)
+                on_release: password.text = root.generate(opts=root.opts)
             Button:
                 text: 'Copy'
                 on_release: Clipboard.copy(password.text)
