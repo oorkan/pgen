@@ -21,13 +21,13 @@ class Password:
 
         if(not 'lowercase' in options):
             options['lowercase'] = False
-        
+
         if(not 'uppercase' in options):
             options['uppercase'] = False
-        
+
         if(not 'numbers' in options):
             options['numbers'] = False
-        
+
         if(not 'special_chars' in options):
             options['special_chars'] = False
 
@@ -47,7 +47,7 @@ class Password:
         chars = letters + digits + punctuation
         password = ''
 
-        if(chars): 
+        if(chars):
             password = ''.join(random.choice(chars) for i in range(options['length']))
-        
+
         return password
