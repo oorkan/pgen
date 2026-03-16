@@ -2,14 +2,15 @@ from kivy.config import Config
 Config.read('kivy.config.ini')
 
 from kivy.app import App
-from kivy.uix.gridlayout import GridLayout
 from includes.main import Password
+from kivy.core.clipboard import Clipboard
+from kivy.uix.gridlayout import GridLayout
 
-class PgenGridLayout(GridLayout, Password):
-	password = Password()
+class PgenGridLayout(GridLayout):
+    clipboard = Clipboard
 
-	def generate(self, opts={}):
-		return self.password.generate(opts)
+    def generate(self, opts={}):
+        return Password().generate(opts)
 
 class PgenApp(App):
     icon = 'icons/lock.png'
